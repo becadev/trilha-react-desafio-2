@@ -17,10 +17,12 @@ function App() {
   const handleSearchRepo = async () => {
 
     const {data} = await api.get(`repos/${currentRepo}`)
+    console.log('Repositório encontrado', data)
 
     if(data.id){
 
       const isExist = repos.find(repo => repo.id === data.id);
+      
 
       if(!isExist){
         setRepos(prev => [...prev, data]);
@@ -35,8 +37,10 @@ function App() {
 
   const handleRemoveRepo = (id) => {
     console.log('Removendo registro', id);
+    const newRepos = repos.filter(repo => repo.id !== id);
+    setRepos(newRepos);
 
-    // utilizar filter.
+  
   }
 
 

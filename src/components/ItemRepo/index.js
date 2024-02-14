@@ -6,6 +6,7 @@ function ItemRepo({repo, handleRemoveRepo}) {
 
   const handleRemove = () => {
     handleRemoveRepo(repo.id)
+    
   }
 
   return (
